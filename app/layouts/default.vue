@@ -1,5 +1,5 @@
 <template>
-  <div class="min-h-screen bg-[#f7f8fc]">
+  <div class="min-h-screen bg-transparent">
     <LayoutDeskSidebar />
 
     <main class="min-w-0 lg:pl-64">
