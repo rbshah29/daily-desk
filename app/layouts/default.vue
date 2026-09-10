@@ -2,7 +2,7 @@
   <div class="min-h-screen bg-transparent">
     <LayoutDeskSidebar />
 
-    <main class="min-w-0 lg:pl-64">
+    <main class="min-w-0 lg:pl-60">
       <LayoutDeskHeader />
 
       <section class="px-5 pb-24 sm:px-8 lg:px-10 lg:pb-10">
