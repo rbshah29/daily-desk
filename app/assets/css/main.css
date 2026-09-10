@@ -1,0 +1,111 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root { font-family: Inter, ui-sans-serif, system-ui, sans-serif; color: #172033; background: #f7f8fc; }
+  body { margin: 0; min-width: 320px; background: #f7f8fc; }
+  button, input, textarea, select { font: inherit; }
+  button { cursor: pointer; }
+}
+
+@layer components {
+  .page { @apply mx-auto max-w-7xl space-y-6; }
+  .page-heading { @apply flex items-end justify-between gap-4; }
+  .page-heading h2 { @apply mt-2 text-3xl font-bold tracking-tight text-slate-900; }
+  .page-heading p { @apply mt-2 text-sm text-slate-500; }
+  .eyebrow { @apply text-[11px] font-bold uppercase tracking-[0.2em] text-orange-500; }
+  .desk-card { @apply rounded-3xl border border-slate-200/80 bg-white p-6 shadow-[0_12px_35px_rgba(25,32,56,0.05)]; }
+  .primary-button { @apply inline-flex items-center justify-center rounded-xl bg-slate-900 px-4 py-2.5 text-sm font-bold text-white shadow-lg shadow-slate-900/10 transition hover:-translate-y-0.5 hover:bg-orange-500 focus:outline-none focus:ring-2 focus:ring-orange-300; }
+  .secondary-button { @apply inline-flex items-center justify-center rounded-xl border border-slate-200 bg-white px-4 py-2.5 text-sm font-bold text-slate-600 transition hover:border-orange-200 hover:text-orange-500; }
+  .icon-button { @apply inline-flex h-9 w-9 items-center justify-center rounded-xl text-slate-400 transition hover:bg-orange-50 hover:text-orange-500; }
+  .desk-input, .desk-select { @apply rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 text-sm text-slate-700 outline-none transition focus:border-orange-300 focus:bg-white focus:ring-4 focus:ring-orange-100; }
+  .empty-state { @apply rounded-3xl border border-dashed border-slate-300 bg-white p-10 text-center text-sm text-slate-400; }
+  .task-create { @apply flex flex-col gap-3 sm:flex-row; }
+  .task-create .desk-input { @apply min-w-0 flex-1; }
+  .task-page-list { @apply space-y-3; }
+  .task-row { @apply flex items-center gap-4; }
+  .task-checkbox { @apply h-5 w-5 accent-orange-500; }
+  .task-copy { @apply flex min-w-0 flex-1 flex-wrap items-center gap-3; }
+  .task-copy strong { @apply text-sm text-slate-700; }
+  .task-copy strong.completed { @apply text-slate-400 line-through; }
+  .priority { @apply rounded-full px-2 py-1 text-[10px] font-bold uppercase tracking-wide; }
+  .priority.high { @apply bg-orange-50 text-orange-600; }
+  .priority.medium { @apply bg-indigo-50 text-indigo-600; }
+  .priority.low { @apply bg-slate-100 text-slate-500; }
+  .icon-button.danger { @apply text-slate-300 hover:bg-red-50 hover:text-red-500; }
+  .split-heading { @apply items-center; }
+  .notes-grid { @apply grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3; }
+  .note-card { @apply min-h-52 rounded-3xl p-5 shadow-sm transition hover:-translate-y-1; }
+  .note-card.red { @apply bg-red-500 text-white; }
+  .note-card.green { @apply bg-emerald-300 text-black; }
+  .note-card.yellow { @apply bg-yellow-300 text-black; }
+  .note-actions { @apply flex items-center justify-between; }
+  .note-actions button { @apply text-sm text-slate-500/60 transition hover:text-slate-800; }
+  .note-card.red .note-actions button { @apply text-white/70 hover:text-white; }
+  .note-card.green .note-actions button, .note-card.yellow .note-actions button { @apply text-black/50 hover:text-black; }
+  .note-color-picker { @apply flex items-center gap-1.5; }
+  .note-color-swatch { @apply h-4 w-4 rounded-full border-2 border-transparent opacity-60 transition hover:scale-110 hover:opacity-100; }
+  .note-color-swatch.active { @apply scale-110 border-white opacity-100 ring-2 ring-black/20; }
+  .note-color-swatch.red { @apply bg-red-600; }
+  .note-color-swatch.green { @apply bg-emerald-500; }
+  .note-color-swatch.yellow { @apply bg-yellow-400; }
+  .note-card textarea { @apply mt-5 h-32 w-full resize-none bg-transparent text-sm font-semibold leading-6 outline-none; }
+  .note-card.red textarea { @apply text-white placeholder:text-white/70; }
+  .note-card.green textarea, .note-card.yellow textarea { @apply text-black placeholder:text-black/50; }
+  .calendar-header { @apply flex items-center justify-between border-b border-slate-100 pb-5 text-sm font-bold text-slate-700; }
+  .calendar-week { @apply mt-5 grid grid-cols-7 text-center text-[10px] font-bold uppercase tracking-wide text-slate-400; }
+  .calendar-grid { @apply mt-3 grid grid-cols-7 gap-2; }
+  .calendar-day { @apply mx-auto flex aspect-square w-10 items-center justify-center rounded-xl text-sm font-semibold text-slate-600 transition hover:bg-orange-50 hover:text-orange-600 sm:w-11; }
+  .calendar-day.today { @apply bg-orange-500 text-white shadow-md shadow-orange-500/20 hover:bg-orange-600 hover:text-white; }
+  .calendar-day.empty { @apply pointer-events-none; }
+  .setting-row { @apply flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between; }
+  .setting-row strong { @apply text-sm font-bold text-slate-800; }
+  .setting-row p { @apply mt-1 text-xs text-slate-400; }
+  .focus-studio { @apply mx-auto max-w-xl text-center; }
+  .focus-presets { @apply mb-8 flex justify-center gap-2; }
+  .preset-button { @apply rounded-xl border border-slate-200 px-4 py-2 text-xs font-bold text-slate-500 transition hover:border-orange-300 hover:text-orange-500; }
+  .preset-button.active { @apply border-orange-500 bg-orange-500 text-white; }
+  .focus-ring { @apply mx-auto flex h-64 w-64 items-center justify-center rounded-full bg-[conic-gradient(#f97316_var(--progress),#f1f5f9_var(--progress))] p-3; }
+  .focus-ring-inner { @apply flex h-full w-full flex-col items-center justify-center rounded-full bg-white; }
+  .focus-ring-inner strong { @apply mt-2 text-5xl font-bold tracking-tighter text-slate-900; }
+  .focus-actions { @apply mt-8 flex justify-center gap-3; }
+  .primary-button.large { @apply px-6 py-3; }
+}
+
+/* The settings page controls this attribute on <html>. Keep the existing
+   utility palette readable without duplicating every class with dark variants. */
+html[data-theme='dark'] body,
+html[data-theme='dark'] .min-h-screen { background: #111827 !important; color: #e5e7eb; }
+html[data-theme='dark'] .bg-white { background-color: #1f2937 !important; }
+html[data-theme='dark'] .bg-slate-50 { background-color: #273449 !important; }
+html[data-theme='dark'] .text-slate-900,
+html[data-theme='dark'] .text-slate-800,
+html[data-theme='dark'] .text-slate-700 { color: #f3f4f6 !important; }
+html[data-theme='dark'] .text-slate-600,
+html[data-theme='dark'] .text-slate-500 { color: #cbd5e1 !important; }
+html[data-theme='dark'] .text-slate-400 { color: #94a3b8 !important; }
+html[data-theme='dark'] .border-slate-200,
+html[data-theme='dark'] .border-slate-200\/80,
+html[data-theme='dark'] .border-slate-100 { border-color: #374151 !important; }
+html[data-theme='dark'] .divide-slate-100 > :not([hidden]) ~ :not([hidden]) { border-color: #374151 !important; }
+html[data-theme='dark'] .bg-slate-100 { background-color: #374151 !important; }
+html[data-theme='dark'] textarea::placeholder,
+html[data-theme='dark'] input::placeholder { color: #94a3b8; }
+
+html[data-theme='light'] .desk-sidebar {
+  background: #ffffff !important;
+  border-color: #e2e8f0 !important;
+}
+html[data-theme='light'] .desk-sidebar a { color: #64748b; }
+html[data-theme='light'] .desk-sidebar a.router-link-active { background: #fff7ed; color: #ea580c; }
+
+html[data-theme='dark'] .desk-sidebar {
+  background: #1f2937 !important;
+  border-color: #374151 !important;
+}
+html[data-theme='dark'] .desk-sidebar a { color: #cbd5e1; }
+html[data-theme='dark'] .desk-sidebar a:hover { background: #273449; color: #fdba74; }
+html[data-theme='dark'] .desk-sidebar a.router-link-active { background: #422006; color: #fdba74; }
+html[data-theme='dark'] .desk-sidebar .text-slate-900 { color: #f8fafc !important; }
+html[data-theme='dark'] .desk-sidebar .text-slate-400 { color: #94a3b8 !important; }
